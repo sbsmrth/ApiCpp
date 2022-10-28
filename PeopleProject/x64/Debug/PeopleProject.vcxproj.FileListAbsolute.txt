@@ -1,0 +1,4 @@
+E:\ProjectDB\PeopleProject\PeopleProject\x64\Debug\PeopleProject.vcxproj.AssemblyReference.cache
+E:\ProjectDB\PeopleProject\PeopleProject\x64\Debug\PeopleProject.vcxproj.SuggestedBindingRedirects.cache
+E:\ProjectDB\PeopleProject\PeopleProject\x64\Debug\PeopleProject.Person.resources
+E:\ProjectDB\PeopleProject\PeopleProject\x64\Debug\PeopleProject.vcxproj.GenerateResource.cache
