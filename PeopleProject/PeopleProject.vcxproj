@@ -121,9 +121,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Connection.cpp" />
     <ClCompile Include="Person.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Connection.h" />
     <ClInclude Include="Person.h">
       <FileType>CppForm</FileType>
     </ClInclude>

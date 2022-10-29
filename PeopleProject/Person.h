@@ -1,4 +1,5 @@
 #pragma once
+#include "Connection.h"
 
 namespace PeopleProject {
 
@@ -34,7 +35,9 @@ namespace PeopleProject {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ name;
+	protected:
+
 
 
 
@@ -43,9 +46,12 @@ namespace PeopleProject {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+	private: System::Windows::Forms::TextBox^ fLastname;
+	private: System::Windows::Forms::TextBox^ sLastname;
+	private: System::Windows::Forms::DateTimePicker^ birthday;
+
+
+
 
 	protected:
 
@@ -62,24 +68,24 @@ namespace PeopleProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->name = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->fLastname = (gcnew System::Windows::Forms::TextBox());
+			this->sLastname = (gcnew System::Windows::Forms::TextBox());
+			this->birthday = (gcnew System::Windows::Forms::DateTimePicker());
 			this->SuspendLayout();
 			// 
-			// textBox1
+			// name
 			// 
-			this->textBox1->Location = System::Drawing::Point(230, 69);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(179, 20);
-			this->textBox1->TabIndex = 0;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Person::textBox1_TextChanged);
+			this->name->Location = System::Drawing::Point(230, 69);
+			this->name->Name = L"name";
+			this->name->Size = System::Drawing::Size(179, 20);
+			this->name->TabIndex = 0;
+			this->name->TextChanged += gcnew System::EventHandler(this, &Person::textBox1_TextChanged);
 			// 
 			// label1
 			// 
@@ -131,42 +137,43 @@ namespace PeopleProject {
 			this->button1->TabIndex = 8;
 			this->button1->Text = L"Enviar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Person::button1_Click);
 			// 
-			// textBox2
+			// fLastname
 			// 
-			this->textBox2->Location = System::Drawing::Point(230, 135);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(179, 20);
-			this->textBox2->TabIndex = 9;
+			this->fLastname->Location = System::Drawing::Point(230, 135);
+			this->fLastname->Name = L"fLastname";
+			this->fLastname->Size = System::Drawing::Size(179, 20);
+			this->fLastname->TabIndex = 9;
 			// 
-			// textBox3
+			// sLastname
 			// 
-			this->textBox3->Location = System::Drawing::Point(230, 196);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(179, 20);
-			this->textBox3->TabIndex = 10;
+			this->sLastname->Location = System::Drawing::Point(230, 196);
+			this->sLastname->Name = L"sLastname";
+			this->sLastname->Size = System::Drawing::Size(179, 20);
+			this->sLastname->TabIndex = 10;
 			// 
-			// dateTimePicker1
+			// birthday
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(230, 258);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(179, 20);
-			this->dateTimePicker1->TabIndex = 12;
+			this->birthday->Location = System::Drawing::Point(230, 258);
+			this->birthday->Name = L"birthday";
+			this->birthday->Size = System::Drawing::Size(179, 20);
+			this->birthday->TabIndex = 12;
 			// 
 			// Person
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(616, 365);
-			this->Controls->Add(this->dateTimePicker1);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->birthday);
+			this->Controls->Add(this->sLastname);
+			this->Controls->Add(this->fLastname);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->name);
 			this->Name = L"Person";
 			this->Text = L"Person";
 			this->Load += gcnew System::EventHandler(this, &Person::Person_Load);
@@ -186,6 +193,11 @@ private: System::Void Person_Load(System::Object^ sender, System::EventArgs^ e) 
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	Connection cnction;
+
+	cnction.Insert(name->Text, fLastname->Text, sLastname->Text, birthday->Value);
 }
 };
 }

@@ -18,9 +18,15 @@
     <ClCompile Include="Person.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Connection.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Person.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Connection.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
