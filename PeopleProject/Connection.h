@@ -29,15 +29,14 @@ public:
 
 public: 
 	
-	void Insert(String^ name, String^ fLastname, String^ sLastname, DateTime birth) {
+	void Insert(String^ name, String^ lastName,  DateTime birth) {
 		try {
 			Connect();
-			String^ sentence = "Insert into Personas values(@nm, @fLast, @sLast, @brth)";
+			String^ sentence = "Insert into Personas values(@nm, @lastNm, @brth)";
 			SqlCommand^ execute = gcnew SqlCommand(sentence, cn);
 
 			execute->Parameters->AddWithValue("@nm", name);
-			execute->Parameters->AddWithValue("@fLast", fLastname);
-			execute->Parameters->AddWithValue("@sLast", sLastname);
+			execute->Parameters->AddWithValue("@lastNm", lastName);
 			execute->Parameters->AddWithValue("@brth", birth);
 
 			cn->Open();
